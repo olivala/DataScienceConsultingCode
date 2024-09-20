@@ -1,0 +1,1005 @@
+---
+title: "Untitled"
+output: html_document
+date: "2024-03-14"
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+df1 <- read.csv('first_session_1862102__20240314-2669587-47xbxj.csv')
+df2 <- read.csv('senn_and_sha_walk_1862108__20240314-2669587-1p9i3gj.csv')
+df3 <- read.csv('monday_sha_walk_1863484__20240314-2669587-6lmgwa.csv')
+df4 <- read.csv('monday_walk_1863405__20240314-2669587-xv6j9x.csv')
+df5 <- read.csv('sunday_sha_walk_1863318__20240314-2669587-xb50uy.csv')
+df6 <- read.csv('sunday_walk_1863308__20240314-2669587-1v5pxtd.csv')
+df7 <- read.csv('tuesday_walk_1863659__20240314-2669587-1cn0jtf.csv')
+df8 <- read.csv('walk_around_sha_on_the_way_home_1862913__20240314-2669587-1kg63s7.csv')
+df9 <- read.csv('walk_home_around_sha_1863054__20240314-2669587-12hmomv.csv')
+df10 <- read.csv('walk_home_around_sha_1863672__20240314-2669587-35486x.csv')
+df11 <- read.csv('walk_home_from_class_around_sha_1862873__20240314-2669587-lc590r.csv')
+df12 <- read.csv('walk_to_class_past_sha_1862814__20240314-2669587-brxwbj.csv')
+df13 <- read.csv('walk_to_sullivan_around_sha_1862884__20240314-2669587-1csjhdz.csv')
+df14 <- read.csv('walk_to_the_ic_1863315__20240314-2669587-9xzp66.csv')
+df15 <- read.csv('weekend_walk_1863239__20240314-2669587-1vfrr9b.csv')
+df16 <- read.csv('thursday_walk_1863940__20240314-2669587-1jvjbm0.csv')
+df17 <- read.csv('tue_afternoon_walk_1863694__20240314-2669587-1e14z7i.csv')
+df18 <- read.csv('wed_afternoon_walk_1863859__20240314-2669587-au96f0.csv')
+df19 <- read.csv('wed_morning_walk_1863792__20240314-2669587-1epjiay.csv')
+df20 <- read.csv('hnr204d_1862365__20240313-2669587-1ibo5bi.csv')
+df21 <- read.csv('hnr204d_1862367__20240313-2669587-13c6dhh.csv')
+df22 <- read.csv('hnr204d_1862448__20240313-2669587-xql1xx.csv')
+df23 <- read.csv('hnr204d_1862524__20240313-2669587-16rbnfz.csv')
+df24 <- read.csv('hnr204d_1862663__20240313-2669587-bamar.csv')
+df25 <- read.csv('hnr204d_1862696__20240313-2669587-syp2iq.csv')
+df26 <- read.csv('hnr204d_1862848__20240313-2669587-1nb4hbk.csv')
+df27 <- read.csv('hnr204d_1862925__20240313-2669587-1dhqovv.csv')
+df28 <- read.csv('hnr204d_1863069__20240313-2669587-1vdpyda.csv')
+df29 <- read.csv('hnr204d_1863677__20240313-2669587-icr0ly.csv')
+df30 <- read.csv('hnr204d_1863844__20240313-2669587-111xlqa.csv')
+df31 <- read.csv('hnr204d_1863848__20240313-2669587-1jusgbk.csv')
+df32 <- read.csv('hnr204d_1863984__20240313-2669587-1bfoa53.csv')
+df33 <- read.csv('sheridan2_1862298__20240220-204500-1wmyy83.csv')
+df34 <- read.csv('loyola_1862284__20240220-204500-4vij5t.csv')
+df35 <- read.csv('devon2_1862124__20240220-204500-19714ue.csv')
+df36 <- read.csv('sheridan_1862237__20240220-204500-12j18l8.csv')
+df37 <- read.csv('devon3_1862125__20240220-204500-1nwyfor.csv')
+df38 <- read.csv('devon_ave_1862107__20240220-204500-a798dn.csv')
+df39 <- read.csv('session_1_1865662__20240320-3254699-10qnqqy.csv')
+df40 <- read.csv('session_2_1865681__20240320-3254699-xkxvhh.csv')
+df41 <- read.csv('session_3_1865922__20240320-3254699-1w04po7.csv')
+df42 <- read.csv('session_4_1865971__20240320-3254699-itlv26.csv')
+df43 <- read.csv('session_5_1865987__20240320-3254699-1i53xm7.csv')
+df44 <- read.csv('session_6_1866014__20240320-3254699-1m29j0h.csv')
+df45 <- read.csv('session_7_1866099__20240320-3254699-16iwdss.csv')
+df46 <- read.csv('session_8_1866956__20240320-3254699-17tf37p.csv')
+df47 <- read.csv('sedory204d_6_1868124__20240326-3759204-193701y.csv')
+df48 <- read.csv('sedory204d_4_1868024__20240326-3759204-s12tqm.csv')
+df49 <- read.csv('sedory204d_1868012__20240326-3759204-1q7y98m.csv')
+df50 <- read.csv('sedory204d_1867908__20240326-3759204-jvfdyx.csv')
+df51 <- read.csv('sedory204d_1867907__20240326-3759204-77vw7d.csv')
+df52 <- read.csv('sedory204d_1867825__20240326-3759204-8bs5d1.csv')
+df53 <- read.csv('sedory_204d_7_1868126__20240326-3759204-znz166.csv')
+df54 <- read.csv('12th_outside_1863474__20240406-861769-aryb3.csv')
+df55 <- read.csv('11th_outside_1863114__20240406-861769-7nax7q.csv')
+df56 <- read.csv('10th_outside_1863093__20240406-861769-1b5mrqe.csv')
+df57 <- read.csv('9th_outside_1863045__20240406-861769-1woz221.csv')
+df58 <- read.csv('8th_outside_1862883__20240406-861769-1q90k69.csv')
+df59 <- read.csv('7th_outside_1862748__20240406-861769-bmnvhm.csv')
+df60 <- read.csv('6th_outside_1862702__20240406-861769-6djmpd.csv')
+df61 <- read.csv('5th_outside_1862532__20240406-861769-h1tt92.csv')
+df62 <- read.csv('4th_outside_1862489__20240406-861769-wolmb3.csv')
+df63 <- read.csv('3rd_outside_1862377__20240406-861769-1yvmkyf.csv')
+df64 <- read.csv('2nd_outside_1862370__20240406-861769-1evgpqi.csv')
+df65 <- read.csv('1st_outside_1862369__20240406-861769-6tur1a.csv')
+df66 <- read.csv('3-7-24_whalon_1864994__20240406-861769-vzhyw5.csv')
+df67 <- read.csv('3-5-24_naperville_pt_2_1864692__20240406-861769-8z3s9w.csv')
+df68 <- read.csv('3-5-24_naperville_1864643__20240406-861769-8uo6ve.csv')
+df69 <- read.csv('3-4-24_naperville_1864503__20240406-861769-1fwntkn.csv')
+df70 <- read.csv('3-3-24_naperville_1864302__20240406-861769-1fo8g89.csv')
+df71 <- read.csv('2-29-24_pt_2_1863995__20240406-861769-26crqb.csv')
+df72 <- read.csv('2-29-24_1863976__20240406-861769-2nwdch.csv')
+df73 <- read.csv('2-21-24_1862757__20240406-861769-1nlljb1.csv')
+df74 <- read.csv('2-20-24_1862577__20240406-861769-15l6q7y.csv')
+df75 <- read.csv('3_23_d_1867808__20240406-861769-1t2pb6j.csv')
+df76 <- read.csv('3_23_c_1867785__20240406-861769-16qq34f.csv')
+df77 <- read.csv('3_23_b_1867783__20240406-861769-1wc8qr7.csv')
+df78 <- read.csv('3_23_a_1867782__20240406-861769-1026z0e.csv')
+df79 <- read.csv('3_20_d_1867203__20240406-861769-1mf27q2.csv')
+df80 <- read.csv('3_20_c_1867187__20240406-861769-7cnz4x.csv')
+df81 <- read.csv('3_20_b_1867172__20240406-861769-1t4sw3z.csv')
+df82 <- read.csv('3_20_a_1867157__20240406-861769-ndll1c.csv')
+df83 <- read.csv('3_19_c_1866997__20240406-861769-3jinil.csv')
+df84 <- read.csv('3_19_b_1866979__20240406-861769-m6dkas.csv')
+df85 <- read.csv('3_19_24_1866971__20240406-861769-395kf8.csv')
+df86 <- read.csv('luc202403201055_1867252__20240406-861769-1c8ey37.csv')
+df87 <- read.csv('luc202403190913_1866982__20240406-861769-1ypldko.csv')
+df88 <- read.csv('luc202403181037_1866917__20240406-861769-1nfg8vq.csv')
+df89 <- read.csv('luc202403180801_1866709__20240406-861769-1rpnvoj.csv')
+df90 <- read.csv('luc202403161224_1866641__20240406-861769-n3xy28.csv')
+df91 <- read.csv('luc202403150839_1866277__20240406-861769-1aiosl.csv')
+df92 <- read.csv('luc202403130744_1866073__20240406-861769-802ucp.csv')
+df93 <- read.csv('luc202403121753_1865754__20240406-861769-2hpym5.csv')
+df94 <- read.csv('luc202403121115_1865670__20240406-861769-jdxqbe.csv')
+df95 <- read.csv('luc202402281427_1863949__20240406-861769-ihp278.csv')
+df96 <- read.csv('luc202402280737_1863804__20240406-861769-1pnkzxe.csv')
+df97 <- read.csv('luc202402271628_1863697__20240406-861769-1js6fr8.csv')
+df98 <- read.csv('luc202402272236_1863789__20240406-861769-nn5hoa.csv')
+df99 <- read.csv('luc202402271427_1863693__20240406-861769-1wtwn3b.csv')
+df100 <- read.csv('luc202402271306_1863684__20240406-861769-iwgs7t.csv')
+df101 <- read.csv('luc202402271210_1863683__20240406-861769-1hili86.csv')
+df102 <- read.csv('colette204d_1867814__20240406-861769-1r6ufgz.csv')
+df103 <- read.csv('colette204d_1867805__20240406-861769-3mc0ez.csv')
+df104 <- read.csv('colette204d_1867678__20240406-861769-8atg79.csv')
+df105 <- read.csv('colette204d_1867485__20240406-861769-1b9q5ye.csv')
+df106 <- read.csv('colette204d_1867397__20240406-861769-1rztdd1.csv')
+df107 <- read.csv('colette204d_1867394__20240406-861769-qsvekv.csv')
+df108 <- read.csv('colette204d_1867245__20240406-861769-1qdcvnm.csv')
+df109 <- read.csv('lakeshroe_10_1867205__20240406-861769-204xgz.csv')
+df110 <- read.csv('lakeshore_monday_1866727__20240406-861769-pf0dwn.csv')
+df111 <- read.csv('lakeshore_1867202__20240406-861769-am8oi5.csv')
+df112 <- read.csv('lakeshore_1867158__20240406-861769-1pbz9xx.csv')
+df113 <- read.csv('lakeshore_1866972__20240406-861769-rknnri.csv')
+df114 <- read.csv('lakeshore_1866935__20240406-861769-vnrlx8.csv')
+df115 <- read.csv('lakeshore_1866716__20240406-861769-1p8gxmd.csv')
+df116 <- read.csv('lakeshore_1866642__20240406-861769-uvgopw.csv')
+df117 <- read.csv('lakeshore_weekend_1866500__20240406-861769-u1yia3.csv')
+df118 <- read.csv('lakeshore_weekend_1866498__20240406-861769-y79xv3.csv')
+df119 <- read.csv('lakeshore_weekend_1866288__20240406-861769-1xxstuh.csv')
+df120 <- read.csv('lakeshore_weekend_1865390__20240406-861769-18viu87.csv')
+df121 <- read.csv('lakeshore_wednesday_1865785__20240406-861769-1rrx174.csv')
+df122 <- read.csv('lakeshore_wednesday_2_1865797__20240406-861769-k2fpn.csv')
+df123 <- read.csv('lakeshore_1866141__20240406-861769-10cdp3d.csv')
+df124 <- read.csv('lakeshore_1866005__20240406-861769-16so8vw.csv')
+df125 <- read.csv('lakeshore_1865953__20240406-861769-1ufydf2.csv')
+df126 <- read.csv('lakeshore_1865830__20240406-861769-7al633.csv')
+df127 <- read.csv('lake_shore_3_1865800__20240406-861769-vqmgus.csv')
+df128 <- read.csv('downtown_monday_1865510__20240406-861769-15vgehb.csv')
+df129 <- read.csv('downtown_1864978__20240406-861769-bchk5v.csv')
+df130 <- read.csv('downtown_1864967__20240406-861769-8ep35c.csv')
+df131 <- read.csv('downtown_1864801__20240406-861769-1le7xq7.csv')
+df132 <- read.csv('downtown_3_1865160__20240406-861769-1438q2a.csv')
+df133 <- read.csv('downtown_2_1864996__20240406-861769-7yeppa.csv')
+df134 <- read.csv('lv_wkday_1865841__20240406-861769-1ad6rkg.csv')
+df135 <- read.csv('lv_weekday_3_13_24_1865839__20240406-861769-1dz5op4.csv')
+df136 <- read.csv('3_1865846__20240406-861769-19vmnlf.csv')
+df137 <- read.csv('3_1865844__20240406-861769-18wtnmv.csv')
+df138 <- read.csv('oakbrook_weekend_1865393__20240406-861769-mroxtv.csv')
+df139 <- read.csv('lyons_township_weekend_1865389__20240406-861769-1f2scef.csv')
+df140 <- read.csv('lyons_high_school_1865526__20240406-861769-12mjbel.csv')
+df141 <- read.csv('lyons_2_1865527__20240406-861769-1k9qe4b.csv')
+df142 <- read.csv('lvlhs_weekend_1865378__20240406-861769-1wa9pyf.csv')
+df143 <- read.csv('lv_weekday_1865714__20240406-861769-1g8qg2n.csv')
+df144 <- read.csv('little_village_weekend_1865408__20240406-861769-s6zvhx.csv')
+df145 <- read.csv('little_village_weekend_3_1865410__20240406-861769-194xloz.csv')
+df146 <- read.csv('little_village_weekend_2_1865409__20240406-861769-64z830.csv')
+df147 <- read.csv('aurora_4_1865333__20240406-861769-6d1geh.csv')
+df148 <- read.csv('aurora_3_1865332__20240406-861769-u2lmdx.csv')
+df149 <- read.csv('aurora_2_1865331__20240406-861769-1hog3bq.csv')
+df150 <- read.csv('yorktown_1863985__20240406-861769-7wim75.csv')
+df151 <- read.csv('lvlhs_session_1_1864418__20240406-861769-22pp10.csv')
+df152 <- read.csv('aurora_1865330__20240406-861769-uwqb1n.csv')
+df153 <- read.csv('1_1863998__20240406-861769-6lkvcn.csv')
+df154 <- read.csv('lebronjames3_1868130__20240406-861769-cjn4wi.csv')
+df155 <- read.csv('lebronjames1_1867984__20240406-861769-2e7mk9.csv')
+df156 <- read.csv('lebronjames_1867863__20240406-861769-1gi348r.csv')
+df157 <- read.csv('on_campus_1867377__20240406-861769-68nqra.csv')
+df158 <- read.csv('on_campis_1867371__20240406-861769-tv9l81.csv')
+df159 <- read.csv('off_campus_1867369__20240406-861769-x83orn.csv')
+df160 <- read.csv('off_campus_1867365__20240406-861769-2og05a.csv')
+df161 <- read.csv('on_campus_1867208__20240406-861769-aamdk4.csv')
+df162 <- read.csv('on_campus_1867191__20240406-861769-1426bu3.csv')
+df163 <- read.csv('off_campus_1867348__20240406-861769-oe4ine.csv')
+df164 <- read.csv('off_campus_4_1867168__20240406-861769-zyhd17.csv')
+df165 <- read.csv('off_campus_3_1867160__20240406-861769-iz0x27.csv')
+df166 <- read.csv('off_campus_2_1867023__20240406-861769-1ku8f5j.csv')
+df167 <- read.csv('off_campus_1_1866933__20240406-861769-1e3dudi.csv')
+df168 <- read.csv('cudahy_on_campus_2_1866975__20240406-861769-1itm7m7.csv')
+df169 <- read.csv('quinlan_life_science_building_on_campus_1_1866748__20240406-861769-deqf0.csv')
+```
+
+```{r}
+
+
+sensor_names <- sapply(list(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10,
+              df11, df12, df13, df14, df15, df16, df17, df18, df19, df20,
+              df21, df22, df23, df24, df25, df26, df27, df28, df29, df30,
+              df31, df32, df33, df34, df35, df36, df37, df38, df39, df40,
+              df41, df42, df43, df44, df45, df46, df47, df48, df49, df50,
+              df51, df52, df53, df54, df55, df56, df57, df58, df59, df60,
+              df61, df62, df63, df64, df65, df66, df67, df68, df69, df70,
+              df71, df72, df73, df74, df75, df76, df77, df78, df79, df80,
+              df81, df82, df83, df84, df85, df86, df87, df88, df89, df90,
+              df91, df92, df93, df94, df95, df96, df97, df98, df99, df100,
+              df101, df102, df103, df104, df105, df106, df107, df108, df109, df110,
+              df111, df112, df113, df114, df115, df116, df117, df118, df119, df120,
+              df121, df122, df123, df124, df125, df126, df127, df128, df129, df130,
+              df131, df132, df133, df134, df135, df136, df137, df138, df139, df140,
+              df141, df142, df143, df144, df145, df146, df147, df148, df149, df150,
+              df151, df152, df153, df154, df155, df156, df157, df158, df159, df160,
+              df161, df162, df163, df164, df165, df166, df167, df168, df169), function(df) df[1, 6])
+
+for (i in 1:length(sensor_names)) {
+  assign(paste0("df", i), transform(get(paste0("df", i)), Airbeam_name = sensor_names[i]))
+}
+
+```
+
+
+
+```{r}
+df1 <- df1[-c(1:8), ]
+df1 <- df1[, -1]
+df2 <- df2[-c(1:8), ]
+df2 <- df2[, -1]
+df3 <- df3[-c(1:8), ]
+df3 <- df3[, -1]
+df4 <- df4[-c(1:8), ]
+df4 <- df4[, -1]
+df5 <- df5[-c(1:8), ]
+df5 <- df5[, -1]
+df6 <- df6[-c(1:8), ]
+df6 <- df6[, -1]
+df7 <- df7[-c(1:8), ]
+df7 <- df7[, -1]
+df8 <- df8[-c(1:8), ]
+df8 <- df8[, -1]
+df9 <- df9[-c(1:8), ]
+df9 <- df9[, -1]
+df10 <- df10[-c(1:8), ]
+df10 <- df10[, -1]
+df11 <- df11[-c(1:8), ]
+df11 <- df11[, -1]
+df12 <- df12[-c(1:8), ]
+df12 <- df12[, -1]
+df13 <- df13[-c(1:8), ]
+df13 <- df13[, -1]
+df14 <- df14[-c(1:8), ]
+df14 <- df14[, -1]
+df15 <- df15[-c(1:8), ]
+df15 <- df15[, -1]
+df16 <- df16[-c(1:8), ]
+df16 <- df16[, -1]
+df17 <- df17[-c(1:8), ]
+df17 <- df17[, -1]
+df18 <- df18[-c(1:8), ]
+df18 <- df18[, -1]
+df19 <- df19[-c(1:8), ]
+df19 <- df19[, -1]
+df20 <- df20[-c(1:8), ]
+df20 <- df20[, -1]
+df21 <- df21[-c(1:8), ]
+df21 <- df21[, -1]
+df22 <- df22[-c(1:8), ]
+df22 <- df22[, -1]
+df23 <- df23[-c(1:8), ]
+df23 <- df23[, -1]
+df24 <- df24[-c(1:8), ]
+df24 <- df24[, -1]
+df25 <- df25[-c(1:8), ]
+df25 <- df25[, -1]
+df26 <- df26[-c(1:8), ]
+df26 <- df26[, -1]
+df27 <- df27[-c(1:8), ]
+df27 <- df27[, -1]
+df28 <- df28[-c(1:8), ]
+df28 <- df28[, -1]
+df29 <- df29[-c(1:8), ]
+df29 <- df29[, -1]
+df30 <- df30[-c(1:8), ]
+df30 <- df30[, -1]
+df31 <- df31[-c(1:8), ]
+df31 <- df31[, -1]
+df32 <- df32[-c(1:8), ]
+df32 <- df32[, -1]
+df33 <- df33[-c(1:8), ]
+df33 <- df33[, -1]
+df34 <- df34[-c(1:8), ]
+df34 <- df34[, -1]
+df35 <- df35[-c(1:8), ]
+df35 <- df35[, -1]
+df36 <- df36[-c(1:8), ]
+df36 <- df36[, -1]
+df37 <- df37[-c(1:8), ]
+df37 <- df37[, -1]
+df38 <- df38[-c(1:8), ]
+df38 <- df38[, -1]
+df39 <- df39[-c(1:8), ]
+df39 <- df39[, -1]
+df40 <- df40[-c(1:8), ]
+df40 <- df40[, -1]
+df41 <- df41[-c(1:8), ]
+df41 <- df41[, -1]
+df42 <- df42[-c(1:8), ]
+df42 <- df42[, -1]
+df43 <- df43[-c(1:8), ]
+df43 <- df43[, -1]
+df44 <- df44[-c(1:8), ]
+df44 <- df44[, -1]
+df45 <- df45[-c(1:8), ]
+df45 <- df45[, -1]
+df46 <- df46[-c(1:8), ]
+df46 <- df46[, -1]
+df47 <- df47[-c(1:8), ]
+df47 <- df47[, -1]
+
+df48 <- df48[-c(1:8), ]
+df48 <- df48[, -1]
+
+df49 <- df49[-c(1:8), ]
+df49 <- df49[, -1]
+
+df50 <- df50[-c(1:8), ]
+df50 <- df50[, -1]
+
+df51 <- df51[-c(1:8), ]
+df51 <- df51[, -1]
+
+df52 <- df52[-c(1:8), ]
+df52 <- df52[, -1]
+
+df53 <- df53[-c(1:8), ]
+df53 <- df53[, -1]
+
+df54 <- df54[-c(1:8), ]
+df54 <- df54[, -1]
+
+df55 <- df55[-c(1:8), ]
+df55 <- df55[, -1]
+
+df56 <- df56[-c(1:8), ]
+df56 <- df56[, -1]
+
+df57 <- df57[-c(1:8), ]
+df57 <- df57[, -1]
+
+df58 <- df58[-c(1:8), ]
+df58 <- df58[, -1]
+
+df59 <- df59[-c(1:8), ]
+df59 <- df59[, -1]
+
+df60 <- df60[-c(1:8), ]
+df60 <- df60[, -1]
+
+df61 <- df61[-c(1:8), ]
+df61 <- df61[, -1]
+
+df62 <- df62[-c(1:8), ]
+df62 <- df62[, -1]
+
+df63 <- df63[-c(1:8), ]
+df63 <- df63[, -1]
+
+df64 <- df64[-c(1:8), ]
+df64 <- df64[, -1]
+
+df65 <- df65[-c(1:8), ]
+df65 <- df65[, -1]
+
+df66 <- df66[-c(1:8), ]
+df66 <- df66[, -1]
+
+df67 <- df67[-c(1:8), ]
+df67 <- df67[, -1]
+
+df68 <- df68[-c(1:8), ]
+df68 <- df68[, -1]
+
+df69 <- df69[-c(1:8), ]
+df69 <- df69[, -1]
+
+df70 <- df70[-c(1:8), ]
+df70 <- df70[, -1]
+
+df71 <- df71[-c(1:8), ]
+df71 <- df71[, -1]
+
+df72 <- df72[-c(1:8), ]
+df72 <- df72[, -1]
+
+df73 <- df73[-c(1:8), ]
+df73 <- df73[, -1]
+
+df74 <- df74[-c(1:8), ]
+df74 <- df74[, -1]
+
+df75 <- df75[-c(1:8), ]
+df75 <- df75[, -1]
+
+df76 <- df76[-c(1:8), ]
+df76 <- df76[, -1]
+
+df77 <- df77[-c(1:8), ]
+df77 <- df77[, -1]
+
+df78 <- df78[-c(1:8), ]
+df78 <- df78[, -1]
+
+df79 <- df79[-c(1:8), ]
+df79 <- df79[, -1]
+
+df80 <- df80[-c(1:8), ]
+df80 <- df80[, -1]
+
+df81 <- df81[-c(1:8), ]
+df81 <- df81[, -1]
+
+df82 <- df82[-c(1:8), ]
+df82 <- df82[, -1]
+
+df83 <- df83[-c(1:8), ]
+df83 <- df83[, -1]
+
+df84 <- df84[-c(1:8), ]
+df84 <- df84[, -1]
+
+df85 <- df85[-c(1:8), ]
+df85 <- df85[, -1]
+
+df86 <- df86[-c(1:8), ]
+df86 <- df86[, -1]
+
+df87 <- df87[-c(1:8), ]
+df87 <- df87[, -1]
+
+df88 <- df88[-c(1:8), ]
+df88 <- df88[, -1]
+
+df89 <- df89[-c(1:8), ]
+df89 <- df89[, -1]
+
+df90 <- df90[-c(1:8), ]
+df90 <- df90[, -1]
+
+df91 <- df91[-c(1:8), ]
+df91 <- df91[, -1]
+
+df92 <- df92[-c(1:8), ]
+df92 <- df92[, -1]
+
+df93 <- df93[-c(1:8), ]
+df93 <- df93[, -1]
+
+df94 <- df94[-c(1:8), ]
+df94 <- df94[, -1]
+
+df95 <- df95[-c(1:8), ]
+df95 <- df95[, -1]
+
+df96 <- df96[-c(1:8), ]
+df96 <- df96[, -1]
+
+df97 <- df97[-c(1:8), ]
+df97 <- df97[, -1]
+
+df98 <- df98[-c(1:8), ]
+df98 <- df98[, -1]
+
+df99 <- df99[-c(1:8), ]
+df99 <- df99[, -1]
+
+df100 <- df100[-c(1:8), ]
+df100 <- df100[, -1]
+
+df101 <- df101[-c(1:8), ]
+df101 <- df101[, -1]
+
+df102 <- df102[-c(1:8), ]
+df102 <- df102[, -1]
+
+df103 <- df103[-c(1:8), ]
+df103 <- df103[, -1]
+
+df104 <- df104[-c(1:8), ]
+df104 <- df104[, -1]
+
+df105 <- df105[-c(1:8), ]
+df105 <- df105[, -1]
+
+df106 <- df106[-c(1:8), ]
+df106 <- df106[, -1]
+
+df107 <- df107[-c(1:8), ]
+df107 <- df107[, -1]
+
+df108 <- df108[-c(1:8), ]
+df108 <- df108[, -1]
+
+df109 <- df109[-c(1:8), ]
+df109 <- df109[, -1]
+
+df110 <- df110[-c(1:8), ]
+df110 <- df110[, -1]
+
+df111 <- df111[-c(1:8), ]
+df111 <- df111[, -1]
+
+df112 <- df112[-c(1:8), ]
+df112 <- df112[, -1]
+
+df113 <- df113[-c(1:8), ]
+df113 <- df113[, -1]
+
+df114 <- df114[-c(1:8), ]
+df114 <- df114[, -1]
+
+df115 <- df115[-c(1:8), ]
+df115 <- df115[, -1]
+
+df116 <- df116[-c(1:8), ]
+df116 <- df116[, -1]
+
+df117 <- df117[-c(1:8), ]
+df117 <- df117[, -1]
+
+df118 <- df118[-c(1:8), ]
+df118 <- df118[, -1]
+
+df119 <- df119[-c(1:8), ]
+df119 <- df119[, -1]
+
+df120 <- df120[-c(1:8), ]
+df120 <- df120[, -1]
+
+df121 <- df121[-c(1:8), ]
+df121 <- df121[, -1]
+
+df122 <- df122[-c(1:8), ]
+df122 <- df122[, -1]
+
+df123 <- df123[-c(1:8), ]
+df123 <- df123[, -1]
+
+df124 <- df124[-c(1:8), ]
+df124 <- df124[, -1]
+
+df125 <- df125[-c(1:8), ]
+df125 <- df125[, -1]
+
+df126 <- df126[-c(1:8), ]
+df126 <- df126[, -1]
+
+df127 <- df127[-c(1:8), ]
+df127 <- df127[, -1]
+
+df128 <- df128[-c(1:8), ]
+df128 <- df128[, -1]
+
+df129 <- df129[-c(1:8), ]
+df129 <- df129[, -1]
+
+df130 <- df130[-c(1:8), ]
+df130 <- df130[, -1]
+
+df131 <- df131[-c(1:8), ]
+df131 <- df131[, -1]
+
+df132 <- df132[-c(1:8), ]
+df132 <- df132[, -1]
+
+df133 <- df133[-c(1:8), ]
+df133 <- df133[, -1]
+
+df134 <- df134[-c(1:8), ]
+df134 <- df134[, -1]
+
+df135 <- df135[-c(1:8), ]
+df135 <- df135[, -1]
+
+df136 <- df136[-c(1:8), ]
+df136 <- df136[, -1]
+
+df137 <- df137[-c(1:8), ]
+df137 <- df137[, -1]
+
+df138 <- df138[-c(1:8), ]
+df138 <- df138[, -1]
+
+df139 <- df139[-c(1:8), ]
+df139 <- df139[, -1]
+
+df140 <- df140[-c(1:8), ]
+df140 <- df140[, -1]
+
+df141 <- df141[-c(1:8), ]
+df141 <- df141[, -1]
+
+df142 <- df142[-c(1:8), ]
+df142 <- df142[, -1]
+
+df143 <- df143[-c(1:8), ]
+df143 <- df143[, -1]
+
+df144 <- df144[-c(1:8), ]
+df144 <- df144[, -1]
+
+df145 <- df145[-c(1:8), ]
+df145 <- df145[, -1]
+
+df146 <- df146[-c(1:8), ]
+df146 <- df146[, -1]
+
+df147 <- df147[-c(1:8), ]
+df147 <- df147[, -1]
+
+df148 <- df148[-c(1:8), ]
+df148 <- df148[, -1]
+
+df149 <- df149[-c(1:8), ]
+df149 <- df149[, -1]
+
+df150 <- df150[-c(1:8), ]
+df150 <- df150[, -1]
+
+df151 <- df151[-c(1:8), ]
+df151 <- df151[, -1]
+
+df152 <- df152[-c(1:8), ]
+df152 <- df152[, -1]
+
+df153 <- df153[-c(1:8), ]
+df153 <- df153[, -1]
+
+df154 <- df154[-c(1:8), ]
+df154 <- df154[, -1]
+
+df155 <- df155[-c(1:8), ]
+df155 <- df155[, -1]
+
+df156 <- df156[-c(1:8), ]
+df156 <- df156[, -1]
+
+df157 <- df157[-c(1:8), ]
+df157 <- df157[, -1]
+
+df158 <- df158[-c(1:8), ]
+df158 <- df158[, -1]
+
+df159 <- df159[-c(1:8), ]
+df159 <- df159[, -1]
+
+df160 <- df160[-c(1:8), ]
+df160 <- df160[, -1]
+
+df161 <- df161[-c(1:8), ]
+df161 <- df161[, -1]
+
+df162 <- df162[-c(1:8), ]
+df162 <- df162[, -1]
+
+df163 <- df163[-c(1:8), ]
+df163 <- df163[, -1]
+
+df164 <- df164[-c(1:8), ]
+df164 <- df164[, -1]
+
+df165 <- df165[-c(1:8), ]
+df165 <- df165[, -1]
+
+df166 <- df166[-c(1:8), ]
+df166 <- df166[, -1]
+
+df167 <- df167[-c(1:8), ]
+df167 <- df167[, -1]
+
+df168 <- df168[-c(1:8), ]
+df168 <- df168[, -1]
+
+df169 <- df169[-c(1:8), ]
+df169 <- df169[, -1]
+```
+
+```{r}
+new_names <- c("Session_Name", "Timestamp", "Latitude", "Longitude", "Temperature", "PM1", "PM10", "PM2.5", "Humidity","Airbeam_name")
+colnames(df1) <- new_names
+colnames(df2) <- new_names
+colnames(df3) <- new_names
+colnames(df4) <- new_names
+colnames(df5) <- new_names
+colnames(df6) <- new_names
+colnames(df7) <- new_names
+colnames(df8) <- new_names
+colnames(df9) <- new_names
+colnames(df10) <- new_names
+colnames(df11) <- new_names
+colnames(df12) <- new_names
+colnames(df13) <- new_names
+colnames(df14) <- new_names
+colnames(df15) <- new_names
+colnames(df16) <- new_names
+colnames(df17) <- new_names
+colnames(df18) <- new_names
+colnames(df19) <- new_names
+colnames(df20) <- new_names
+colnames(df21) <- new_names
+colnames(df22) <- new_names
+colnames(df23) <- new_names
+colnames(df24) <- new_names
+colnames(df25) <- new_names
+colnames(df26) <- new_names
+colnames(df27) <- new_names
+colnames(df28) <- new_names
+colnames(df29) <- new_names
+colnames(df30) <- new_names
+colnames(df31) <- new_names
+colnames(df32) <- new_names
+colnames(df33) <- new_names
+colnames(df34) <- new_names
+colnames(df35) <- new_names
+colnames(df36) <- new_names
+colnames(df37) <- new_names
+colnames(df38) <- new_names
+colnames(df39) <- new_names
+colnames(df40) <- new_names
+colnames(df41) <- new_names
+colnames(df42) <- new_names
+colnames(df43) <- new_names
+colnames(df44) <- new_names
+colnames(df45) <- new_names
+colnames(df46) <- new_names
+colnames(df47) <- new_names
+colnames(df48) <- new_names
+colnames(df49) <- new_names
+colnames(df50) <- new_names
+colnames(df51) <- new_names
+colnames(df52) <- new_names
+colnames(df53) <- new_names
+colnames(df54) <- new_names
+colnames(df55) <- new_names
+colnames(df56) <- new_names
+colnames(df57) <- new_names
+colnames(df58) <- new_names
+colnames(df59) <- new_names
+colnames(df60) <- new_names
+colnames(df61) <- new_names
+colnames(df62) <- new_names
+colnames(df63) <- new_names
+colnames(df64) <- new_names
+colnames(df65) <- new_names
+colnames(df66) <- new_names
+colnames(df67) <- new_names
+colnames(df68) <- new_names
+colnames(df69) <- new_names
+colnames(df70) <- new_names
+colnames(df71) <- new_names
+colnames(df72) <- new_names
+colnames(df73) <- new_names
+colnames(df74) <- new_names
+colnames(df75) <- new_names
+colnames(df76) <- new_names
+colnames(df77) <- new_names
+colnames(df78) <- new_names
+colnames(df79) <- new_names
+colnames(df80) <- new_names
+colnames(df81) <- new_names
+colnames(df82) <- new_names
+colnames(df83) <- new_names
+colnames(df84) <- new_names
+colnames(df85) <- new_names
+colnames(df86) <- new_names
+colnames(df87) <- new_names
+colnames(df88) <- new_names
+colnames(df89) <- new_names
+colnames(df90) <- new_names
+colnames(df91) <- new_names
+colnames(df92) <- new_names
+colnames(df93) <- new_names
+colnames(df94) <- new_names
+colnames(df95) <- new_names
+colnames(df96) <- new_names
+colnames(df97) <- new_names
+colnames(df98) <- new_names
+colnames(df99) <- new_names
+colnames(df100) <- new_names
+colnames(df101) <- new_names
+colnames(df102) <- new_names
+colnames(df103) <- new_names
+colnames(df104) <- new_names
+colnames(df105) <- new_names
+colnames(df106) <- new_names
+colnames(df107) <- new_names
+colnames(df108) <- new_names
+colnames(df109) <- new_names
+colnames(df110) <- new_names
+colnames(df111) <- new_names
+colnames(df112) <- new_names
+colnames(df113) <- new_names
+colnames(df114) <- new_names
+colnames(df115) <- new_names
+colnames(df116) <- new_names
+colnames(df117) <- new_names
+colnames(df118) <- new_names
+colnames(df119) <- new_names
+colnames(df120) <- new_names
+colnames(df121) <- new_names
+colnames(df122) <- new_names
+colnames(df123) <- new_names
+colnames(df124) <- new_names
+colnames(df125) <- new_names
+colnames(df126) <- new_names
+colnames(df127) <- new_names
+colnames(df128) <- new_names
+colnames(df129) <- new_names
+colnames(df130) <- new_names
+colnames(df131) <- new_names
+colnames(df132) <- new_names
+colnames(df133) <- new_names
+colnames(df134) <- new_names
+colnames(df135) <- new_names
+colnames(df136) <- new_names
+colnames(df137) <- new_names
+colnames(df138) <- new_names
+colnames(df139) <- new_names
+colnames(df140) <- new_names
+colnames(df141) <- new_names
+colnames(df142) <- new_names
+colnames(df143) <- new_names
+colnames(df144) <- new_names
+colnames(df145) <- new_names
+colnames(df146) <- new_names
+colnames(df147) <- new_names
+colnames(df148) <- new_names
+colnames(df149) <- new_names
+colnames(df150) <- new_names
+colnames(df151) <- new_names
+colnames(df152) <- new_names
+colnames(df153) <- new_names
+colnames(df154) <- new_names
+colnames(df155) <- new_names
+colnames(df156) <- new_names
+colnames(df157) <- new_names
+colnames(df158) <- new_names
+colnames(df159) <- new_names
+colnames(df160) <- new_names
+colnames(df161) <- new_names
+colnames(df162) <- new_names
+colnames(df163) <- new_names
+colnames(df164) <- new_names
+colnames(df165) <- new_names
+colnames(df166) <- new_names
+colnames(df167) <- new_names
+colnames(df168) <- new_names
+colnames(df169) <- new_names
+```
+
+
+```{r}
+data <- rbind(df1, df2, df3, df4, df5, df6, df7, df8, df9, df10,
+              df11, df12, df13, df14, df15, df16, df17, df18, df19, df20,
+              df21, df22, df23, df24, df25, df26, df27, df28, df29, df30,
+              df31, df32, df33, df34, df35, df36, df37, df38, df39, df40,
+              df41, df42, df43, df44, df45, df46, df47, df48, df49, df50,
+              df51, df52, df53, df54, df55, df56, df57, df58, df59, df60,
+              df61, df62, df63, df64, df65, df66, df67, df68, df69, df70,
+              df71, df72, df73, df74, df75, df76, df77, df78, df79, df80,
+              df81, df82, df83, df84, df85, df86, df87, df88, df89, df90,
+              df91, df92, df93, df94, df95, df96, df97, df98, df99, df100,
+              df101, df102, df103, df104, df105, df106, df107, df108, df109, df110,
+              df111, df112, df113, df114, df115, df116, df117, df118, df119, df120,
+              df121, df122, df123, df124, df125, df126, df127, df128, df129, df130,
+              df131, df132, df133, df134, df135, df136, df137, df138, df139, df140,
+              df141, df142, df143, df144, df145, df146, df147, df148, df149, df150,
+              df151, df152, df153, df154, df155, df156, df157, df158, df159, df160,
+              df161, df162, df163, df164, df165, df166, df167, df168, df169)
+
+```
+
+```{r}
+write.csv(data, "data.csv", row.names = FALSE)
+```
+
+
+```{r}
+data[data == ""] <- NA
+missing <- sum(rowSums(is.na(data)) > 0)
+missing
+```
+
+```{r}
+data[data == ""] <- NA
+data[data == "0"] <- NA
+data[data == "0.0"] <- NA
+unique_airbeams <- unique(data$Airbeam_name)
+airbeam_list <- list()
+for (airbeam_name in unique_airbeams) {
+  airbeam_data <- subset(data, Airbeam_name == airbeam_name)
+  total_rows <- nrow(airbeam_data)
+  rows_with_na <- sum(rowSums(is.na(airbeam_data)) > 0)
+  airbeam_result <- data.frame(
+    Airbeam_name = airbeam_name,
+    total_rows = total_rows,
+    rows_with_na = rows_with_na
+  )
+  airbeam_list[[airbeam_name]] <- airbeam_result
+}
+result <- do.call(rbind, airbeam_list)
+result$na_ratio <- result$rows_with_na / result$total_rows
+result
+```
+
+```{r}
+ggplot(result, aes(x = Airbeam_name, y = na_ratio)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Ratio of Rows with NA Values for Each Airbeam",
+       x = "Airbeam Name",
+       y = "Ratio") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_text(aes(label = sprintf("%.2f", na_ratio)), vjust = -0.5, size = 3)  
+```
+
+```{r}
+result <- data.frame(
+  Airbeam_name = character(),
+  Session_Name = character(),
+  total_rows = integer(),
+  nas_count = integer(),
+  ratio_rows_with_na = numeric(),
+  stringsAsFactors = FALSE
+)
+for (airbeam_name in unique_airbeams) {
+  airbeam_data <- subset(data, Airbeam_name == airbeam_name)
+  unique_sessions <- unique(airbeam_data$Session_Name)
+  for (session_name in unique_sessions) {
+    session_data <- subset(airbeam_data, Session_Name == session_name)
+    total_rows <- nrow(session_data)
+    nas_count <- sum(is.na(session_data))
+    ratio_rows_with_na <- nas_count / total_rows
+    result[nrow(result) + 1, ] <- list(airbeam_name, session_name, total_rows, nas_count, ratio_rows_with_na)
+  }
+}
+ggplot(result, aes(x = Airbeam_name, y = ratio_rows_with_na, fill = Session_Name)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Distribution of Ratio of Total Rows to NA Values for Each Airbeam",
+       x = "Airbeam Name",
+       y = "Ratio") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_discrete(name = NULL) +  
+  guides(fill = FALSE) 
+```
+
+
+```{r}
+result <- data.frame(
+  Airbeam_name = character(),
+  Session_Name = character(),
+  total_rows = integer(),
+  nas_count = integer(),
+  ratio_rows_with_na = numeric(),
+  stringsAsFactors = FALSE)
+for (airbeam_name in unique_airbeams) {
+  airbeam_data <- subset(data, Airbeam_name == airbeam_name)
+    unique_sessions <- unique(airbeam_data$Session_Name)
+  for (session_name in unique_sessions) {
+    session_data <- subset(airbeam_data, Session_Name == session_name)
+        total_rows <- nrow(session_data)
+        nas_count <- sum(is.na(session_data$PM10))
+        ratio_rows_with_na <- nas_count / total_rows
+        result[nrow(result) + 1, ] <- list(airbeam_name, session_name, total_rows, nas_count, ratio_rows_with_na)
+  }
+}
+result$Session_Name <- factor(result$Session_Name, levels = unique(result$Session_Name))
+plots <- lapply(unique(result$Airbeam_name), function(airbeam) {
+  ggplot(subset(result, Airbeam_name == airbeam), aes(x = Session_Name, y = ratio_rows_with_na)) +
+    geom_bar(stat = "identity", fill = "skyblue") +
+    labs(title = paste("Distribution of Ratio of Total Rows to NA Values for", airbeam),
+         x = "Session",
+         y = "Ratio") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1),
+          strip.text.x = element_text(size = 8, angle = 45, hjust = 1))
+})
+plots
+```
+
+```{r}
+result <- data.frame(
+  Airbeam_name = character(),
+  total_rows = integer(),
+  nas_count = integer(),
+  ratio_rows_with_na = numeric(),
+  stringsAsFactors = FALSE
+)
+for (airbeam_name in unique_airbeams) {
+  airbeam_data <- subset(data, Airbeam_name == airbeam_name, select = "PM2.5")
+  total_rows <- nrow(airbeam_data)
+  nas_count <- sum(is.na(airbeam_data$PM2.5))
+  ratio_rows_with_na <- nas_count / total_rows
+  result[nrow(result) + 1, ] <- list(airbeam_name, total_rows, nas_count, ratio_rows_with_na)
+}
+result
+```
+
+```{r}
+ggplot(result, aes(x = Airbeam_name, y = ratio_rows_with_na)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Ratio of Rows with NA Values in PM2.5 Column for Each Airbeam",
+       x = "Airbeam Name",
+       y = "Ratio") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_text(aes(label = sprintf("%.2f", ratio_rows_with_na)), vjust = -0.5, size = 3)
+```
+
